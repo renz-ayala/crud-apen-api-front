@@ -3,11 +3,20 @@ import { PlacaControllerService, PlacaRequest, PlacaResponse } from '../../api';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { catchError, finalize, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NzButtonModule } from 'ng-zorro-antd/button'; 
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-consultar-placa',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,
+    NzButtonModule,
+    NzInputModule,
+    NzFormModule,
+    NzIconModule
+  ],
   templateUrl: './consultar-placa.component.html',
   styleUrls: ['./consultar-placa.component.scss']
 })
