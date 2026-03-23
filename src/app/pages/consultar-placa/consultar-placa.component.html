@@ -1,41 +1,69 @@
-<div class="contenedor">
-  <h2 class="subtitulo-principal">
-    <span></span> Detalles
-  </h2>
-
-  <form nz-form [formGroup]="form" (ngSubmit)="consultar()" nzLayout="vertical">
-
-    <nz-form-item>
-      <nz-form-label [nzRequired]="true">Número de Placa</nz-form-label>
-        
-      <nz-form-control nzErrorTip="Ingrese un número de placa">
-        <span nz-input-affix-wrapper nzSize="large">
-          <span nz-prefix nz-icon nzType="car"></span>
-          <input
-            nz-input
-            type="text"
-            formControlName="placa"
-            placeholder="ABC123"
-            (input)="filtrarInput($event)"
-            maxlength="7"
-          />
-        </span>
-      </nz-form-control>
-    </nz-form-item>
-
-    <button nz-button nzType="primary" nzSize="large" type="submit" [disabled]="isSpinning() || form.invalid" [nzLoading]="isSpinning()">
-      <span nz-icon nzType="search"></span>
-      {{ textoBoton() }}
-    </button>
-    
-  </form>
+<div class="tw-w-full tw-max-w-[500px] tw-my-[60px] tw-mx-auto tw-p-[40px] tw-rounded-[32px] tw-bg-white tw-shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] tw-border tw-border-gray-100">
   
-  <div class="mensaje-resultado">
-    @if (resultado()) {
-      <div [class]="cssResultado()">
-        <strong>{{ resultado() }}</strong>
-      </div>
-    }
-  </div>
+  <div class="tw-relative">
+    <div class="tw-flex tw-justify-center tw-mb-6">
+      <span class="tw-px-4 tw-py-1 tw-rounded-full tw-bg-blue-50 tw-text-blue-600 tw-text-[11px] tw-font-bold tw-uppercase tw-tracking-widest tw-border tw-border-blue-100">
+        Sistema de Consulta v2.1.0
+      </span>
+    </div>
 
+    <h2 class="tw-text-center tw-text-2xl tw-font-black tw-text-slate-900 tw-mb-2">
+      Identificación Vehicular
+    </h2>
+    <p class="tw-text-center tw-text-slate-500 tw-text-sm tw-mb-10">
+      Ingrese la matrícula para obtener los detalles del vehículo.
+    </p>
+
+    <form nz-form [formGroup]="form" (ngSubmit)="consultar()" nzLayout="vertical">
+
+      <nz-form-item class="tw-mb-8">
+        <nz-form-label [nzRequired]="true" class="tw-text-slate-700 tw-font-bold tw-text-xs tw-tracking-wider">Número de Placa</nz-form-label>
+          
+        <nz-form-control nzErrorTip="Ingrese una placa válida (Eje: ABC123)">
+          <span nz-input-affix-wrapper nzSize="large" 
+            class="tw-flex tw-items-center tw-bg-gray-50 tw-border-gray-200 tw-rounded-2xl tw-px-5 tw-py-1 tw-transition-all focus-within:tw-bg-white focus-within:tw-border-blue-500 focus-within:tw-ring-4 focus-within:tw-ring-blue-500/10">
+            
+            <span nz-prefix nz-icon nzType="car" class="tw-text-slate-400 tw-text-xl tw-mr-3"></span>
+            
+            <input
+              nz-input
+              type="text"
+              formControlName="placa"
+              placeholder="ABC123"
+              (input)="filtrarInput($event)"
+              maxlength="7"
+              class="tw-bg-transparent tw-text-slate-900 tw-text-xl tw-font-bold tw-uppercase tw-tracking-[0.2em] tw-placeholder-gray-300 tw-border-none focus:tw-ring-0"
+            />
+          </span>
+        </nz-form-control>
+      </nz-form-item>
+
+      <button 
+        nz-button 
+        nzType="primary" 
+        nzSize="large" 
+        type="submit" 
+        [disabled]="isSpinning() || form.invalid" 
+        [nzLoading]="isSpinning()"
+        class="tw-w-full tw-h-[60px] tw-flex tw-items-center tw-justify-center tw-gap-3 tw-rounded-2xl tw-font-bold tw-transition-all tw-duration-300
+              tw-bg-[#0f172a] tw-text-white tw-border-none
+              hover:tw-bg-[#1e293b] hover:tw-shadow-xl hover:tw-shadow-slate-200 
+              active:tw-scale-[0.97]
+              disabled:!tw-bg-slate-200 disabled:!tw-text-slate-500 disabled:tw-cursor-not-allowed disabled:tw-scale-100"
+      >
+        <span nz-icon nzType="search" class="tw-text-xl"></span>
+        {{ textoBoton() }}
+      </button>
+      
+    </form>
+    
+    <div class="tw-mt-8 tw-min-h-[70px]">
+      @if (resultado()) {
+        <div [class]="cssResultado()">
+          <span class="tw-block tw-text-[10px] tw-font-black tw-uppercase tw-tracking-widest tw-opacity-60 tw-mb-1">Respuesta:</span>
+          <strong class="tw-text-base">{{ resultado() }}</strong>
+        </div>
+      }
+    </div>
+  </div>
 </div>

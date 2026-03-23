@@ -30,7 +30,11 @@ export class ConsultarPlacaComponent{
   isSpinning = signal(false);
   
   textoBoton = computed(() => this.isSpinning() ? 'Buscando...' : 'Realizar Búsqueda');
-  cssResultado = computed(() => this.error() ? 'error' : 'resultado')
+  cssResultado = computed(() => 
+    this.error() 
+      ? 'tw-p-5 tw-rounded-2xl tw-bg-red-50 tw-border tw-border-red-100 tw-text-red-600 tw-text-center tw-animate-shake' 
+      : 'tw-p-5 tw-rounded-2xl tw-bg-emerald-50 tw-border tw-border-emerald-100 tw-text-emerald-700 tw-text-center tw-shadow-sm'
+  );
 
   form = this.fb.group({
     placa: ['', [Validators.required, Validators.pattern('^[A-Z0-9Ñ]{6,7}$')]]
