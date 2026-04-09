@@ -41,7 +41,7 @@
       <app-captcha (tokenSolve)="getSolvedCaptcha($event)"></app-captcha>
 
       <button nz-button nzType="primary" nzSize="large" type="submit"
-        [disabled]="isSpinning() || form.invalid || !tokenCaptcha()" [nzLoading]="isSpinning()"
+        [disabled]="isSpinning() || form.invalid || !tokenCaptcha() || downloading()" [nzLoading]="isSpinning()"
         class="tw-w-full tw-h-[60px] tw-flex tw-items-center tw-justify-center tw-gap-3 tw-rounded-2xl tw-font-bold tw-transition-all tw-duration-300
               tw-bg-[#0f172a] tw-text-white tw-border-none
               hover:tw-bg-[#1e293b] hover:tw-shadow-xl hover:tw-shadow-slate-200
