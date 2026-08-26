@@ -13,7 +13,7 @@ Se tiene 2 versiones, 1 que es el crud normal. Y otra con la implementacion de k
    Credenciales del SSO:
    - user: ggrenz
    - password: qwerty1234
-   - email: renzayala98@gmail.com)
+   - email: renzayala98@gmail.com
    
    Para usar sin problemas la demo, debe cargar los 2 servicios necesarios:
    - https://keycloak-plugin.onrender.com (servicio proveedor del SSO - Keycloak)
